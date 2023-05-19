@@ -11,7 +11,7 @@ import useOtherUser from "@/app/hooks/useOtherUser";
 
 import Avatar from "@/app/components/Avatar";
 // import AvatarGroup from "@/app/components/AvatarGroup"
-// import ProfileDrawer from "./ProfileDrawer";
+import ProfileDrawer from "./ProfileDrawer";
 
 interface HeaderProps {
   conversation: Conversation & {
@@ -36,10 +36,11 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   }, [conversation]);
   return (
     <>
-      {/* <ProfileDrawer
-                data={conversation}
-                isOpen={drawerOpen}
-                onClose={() => setDrawerOpen(false)}/> */}
+      <ProfileDrawer
+        data={conversation}
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      />
       <div
         className="
             bg-white
