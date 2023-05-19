@@ -22,7 +22,7 @@ const AuthForm = () => {
 
   useEffect(() => {
     if (session?.status === "authenticated") {
-      router.push("/users");
+      router.push("/conversations");
     }
   }, [session?.status, router]);
 
@@ -46,11 +46,11 @@ const AuthForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     setIsLoading(true);
 
     if (variant === "REGISTER") {
-      axios
+      await axios
         .post("/api/register", data)
         .catch(() => toast.error("Something went wrong!"))
         .finally(() => setIsLoading(false));
@@ -63,32 +63,29 @@ const AuthForm = () => {
       })
         .then((callback) => {
           if (callback?.error) {
-            console.log("error");
             toast.error("Invalid credentials!");
           }
 
-          if (callback?.ok) {
-            console.log("success");
-            toast.success("Logged in!");
-            // router.push('/conversations')
+          if (callback?.ok && !callback?.error) {
+            toast.success("Đăng nhập thành công!");
+            router.push("/conversations");
           }
         })
         .finally(() => setIsLoading(false));
     }
   };
 
-  const socialAction = (action: String) => {
+  const socialAction = (action: string) => {
     setIsLoading(true);
     signIn(action, { redirect: false })
       .then((callback) => {
         if (callback?.error) {
           toast.error("Something went wrong!");
         }
-        console.log("...");
 
         if (callback?.ok) {
-          toast.success("Logged in!");
-          // router.push('/conversations')
+          toast.success("Đăng nhập thành công!");
+          router.push("/conversations");
         }
       })
       .finally(() => setIsLoading(false));
