@@ -56,7 +56,7 @@ const SettingModal: React.FC<SettingModalProps> = ({
         router.refresh();
         onClose();
       })
-      .catch(() => toast.error("Something went wrong!"))
+      .catch(() => toast.error("Có lỗi xảy ra!"))
       .finally(() => setIsLoading(false));
   };
 
@@ -80,7 +80,7 @@ const SettingModal: React.FC<SettingModalProps> = ({
             <div className="mt-10 flex flex-col gap-y-8">
               <Input
                 disabled={isLoading}
-                label="Tài khoản"
+                label="Họ và tên"
                 id="name"
                 errors={errors}
                 required
