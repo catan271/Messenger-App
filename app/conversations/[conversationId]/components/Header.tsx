@@ -10,11 +10,7 @@ import useOtherUser from "@/app/hooks/useOtherUser";
 import useActiveList from "@/app/hooks/useActiveList";
 
 import Avatar from "@/app/components/Avatar";
-<<<<<<< Updated upstream
-// import AvatarGroup from "@/app/components/AvatarGroup"
-=======
 import AvatarGroup from "@/app/components/AvatarGroup";
->>>>>>> Stashed changes
 import ProfileDrawer from "./ProfileDrawer";
 
 interface HeaderProps {
