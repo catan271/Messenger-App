@@ -37,18 +37,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
     return data.name || otherUser.name;
   }, [data.name, otherUser.name]);
 
-<<<<<<< Updated upstream
-  // const { members } = useActiveList();
-  // const isActive = members.indexOf(otherUser?.email) !== -1;
-
-  // const statusText = useMemo(() => {
-  //   if (data.isGroup) {
-  //     return `${data.users.length} members`;
-  //   }
-  //   return isActive ? "Đang hoạt động" : "Ngoại tuyến";
-  // }, [data, isActive]);
-
-=======
   const { members } = useActiveList();
   const isActive = members.indexOf(otherUser?.email!) !== -1;
 
@@ -58,7 +46,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
     }
     return isActive ? "Đang hoạt động" : "Ngoại tuyến";
   }, [data, isActive]);
->>>>>>> Stashed changes
   return (
     <>
       <ConfirmModal
@@ -77,16 +64,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
             leaveTo="opacity-0">
             <div className="fixed inset-0 bg-black bg-opacity-40" />
           </Transition.Child>
-<<<<<<< Updated upstream
-
-          <div className="fixed inset-0 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <Transition.child
-              </div>
-              </div>
-            </div>
-=======
           <div className="fixed inset-0 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -212,7 +189,6 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
             </div>
           </div>
         </Dialog>
->>>>>>> Stashed changes
       </Transition.Root>
     </>
   );
