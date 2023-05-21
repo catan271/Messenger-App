@@ -43,6 +43,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
              w-12
              flex-shrink-0
              items-center
+             justify-center
              rounded-full
              bg-red-100
              sm:mx-0
@@ -78,7 +79,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose }) => {
         <Button disabled={isLoading} danger onClick={onDelete}>
           Xoá
         </Button>
-        <Button disabled={isLoading} danger onClick={onClose}>
+        <Button disabled={isLoading} secondary onClick={onClose}>
           Hủy
         </Button>
       </div>

@@ -7,10 +7,14 @@ import Link from "next/link";
 import { Conversation, User } from "@prisma/client";
 
 import useOtherUser from "@/app/hooks/useOtherUser";
-// import useActiveList from "@/app/hooks/useActiveList";
+import useActiveList from "@/app/hooks/useActiveList";
 
 import Avatar from "@/app/components/Avatar";
+<<<<<<< Updated upstream
 // import AvatarGroup from "@/app/components/AvatarGroup"
+=======
+import AvatarGroup from "@/app/components/AvatarGroup";
+>>>>>>> Stashed changes
 import ProfileDrawer from "./ProfileDrawer";
 
 interface HeaderProps {
@@ -23,17 +27,15 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // const {members} = useActiveList()
-  // const isActive = members.indexOf(otherUser?.email) !== -1;
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
-      return `${conversation.userIds.length} members`;
+      return `${conversation.userIds.length} thành viên`;
     }
-    return "Đang hoạt động";
 
-    // return isActive ? 'Đang hoạt động' : "Ngoại tuyến";
-    // }, [conversation, isActive]);
-  }, [conversation]);
+    return isActive ? "Đang hoạt động" : "Ngoại tuyến";
+  }, [conversation, isActive]);
   return (
     <>
       <ProfileDrawer
@@ -67,12 +69,11 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
                 ">
             <HiChevronLeft size={32} />
           </Link>
-          <Avatar user={otherUser} />
-          {/* {conversation.isGroup ? (
+          {conversation.isGroup ? (
             <AvatarGroup users={conversation.users} />
           ) : (
             <Avatar user={otherUser} />
-          )} */}
+          )}
           <div className="flex flex-col">
             <div>{conversation.name || otherUser.name}</div>
             <div className="text-sm font-light text-neutral-500">

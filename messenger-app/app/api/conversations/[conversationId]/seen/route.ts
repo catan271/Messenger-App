@@ -75,7 +75,7 @@ export async function POST(request: Request, { params }: { params: IParams }) {
     // Update last message seen
     await pusherServer.trigger(
       conversationId!,
-      "message:update",
+      "messages:update",
       updatedMessage
     );
 

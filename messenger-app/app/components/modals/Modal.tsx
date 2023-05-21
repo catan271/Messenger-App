@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
           />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-auto">
+        <div className="fixed inset-0 z-10 overflow-y-auto">
           <div
             className="
             flex
@@ -94,6 +94,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                     <IoClose className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
+                {children}
               </Dialog.Panel>
             </Transition.Child>
           </div>

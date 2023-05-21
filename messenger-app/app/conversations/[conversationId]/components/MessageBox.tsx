@@ -20,6 +20,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast }) => {
   const [imageModalOpen, setImageModalOpen] = useState(false);
 
   const isOwn = session.data?.user?.email === data?.sender?.email;
+
   const seenList = (data.seen || [])
     .filter((user) => user.email !== data?.sender?.email)
     .map((user) => user.name)
